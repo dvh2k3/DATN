@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public float attackDistance; //mininum Disstance for attack
-    public float moveSpeed;  //enemy move speed
-    public float timer;      // time for cooldown between attacks
+
+    public bool shouldPatrol;
+    public bool shouldShoot;
+    public float attackDistance; //minimum Distance for attack
+    public float moveSpeed;     //enemy move speed
+    public float timer; //timer for cooldown between attacks
     public Transform leftLimit;  //patrol point
-    public Transform rightLimit; //patrol point
-    public GameObject hotZone;  //alarm zone for detecting player
+    public Transform rightLimit;  // patrol point 
+    public GameObject hotZone;    //alarm zone for detecting player
     public GameObject triggerArea;
 
     public bool isDead;
@@ -20,15 +23,19 @@ public class EnemyController : MonoBehaviour
 
     public Transform target;
     private Animator anim;
-    private float distance;  // store the distance between enemy and player
+    private float distance; //store the distance between enemy and player
     private bool attackMode;
-    public bool inRange;  // check if player is in range
-    private bool cooling;  //check if enemy is cooling after attack
-    private float intTimer;  // store initial timer
+    public bool inRange;//check if player is in range
+    private bool cooling;//checked if enemy is cooling after attack
+    private float intTimer;//store initial timer
+
+    [Header("Range Attack")]
+    public EnemyBullet bullet;
+    public Transform shootingPoint;
 
     private void Awake()
     {
-        intTimer = timer;  //store the initial value of timer
+        intTimer = timer; //store the initial value of timer
         anim = GetComponent<Animator>();
     }
 
@@ -41,7 +48,6 @@ public class EnemyController : MonoBehaviour
         {
             if (!attackMode && isGrounded)
             {
-
                 Move();
             }
             else if (!isGrounded)
@@ -50,7 +56,7 @@ public class EnemyController : MonoBehaviour
                 Move();
             }
 
-            if (!InsideOfLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Ghost_Attack"))
+            if (!InsideOfLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack"))
             {
                 Patrol();
             }
@@ -61,7 +67,6 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        
     }
 
     void EnemyLogic()
@@ -87,22 +92,46 @@ public class EnemyController : MonoBehaviour
 
     void Move()
     {
-        anim.SetBool("Walk", true);
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Ghost_Attack"))
+        if (target != null)
         {
-            Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            if (shouldPatrol)
+            {
+                anim.SetBool("Walk", true);
+                if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack") && !inRange)
+                {
+                    Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
+                    transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
+                    transform.position = Vector2.MoveTowards(transform.position, targetPosition, (moveSpeed + 2f) * Time.deltaTime);
+                }
+            }
         }
+
+
     }
 
     void Attack()
     {
         isGrounded = true;
+
         timer = intTimer; //reset timer when player enter attack range
         attackMode = true;//to check if enemy can still attack or not
 
         anim.SetBool("Walk", false);
         anim.SetBool("Attack", true);
+
+    }
+
+    public void Shooting()
+    {
+        if (shouldShoot)
+        {
+            Instantiate(bullet, shootingPoint.position, shootingPoint.rotation).moveDirection = new Vector2(transform.localScale.x, 0);
+        }
+
     }
 
     void cooldown()
@@ -117,6 +146,7 @@ public class EnemyController : MonoBehaviour
 
     void StopAttack()
     {
+
         cooling = false;
         attackMode = false;
         anim.SetBool("Attack", false);
@@ -133,34 +163,43 @@ public class EnemyController : MonoBehaviour
 
     public void Patrol()
     {
-        float distanceToLeft = Vector2.Distance(transform.position, leftLimit.position);
-        float distanceToRight = Vector2.Distance(transform.position, rightLimit.position);
+        if (shouldPatrol)
+        {
+            float distanceToLeft = Vector2.Distance(transform.position, leftLimit.position);
+            float distanceToRight = Vector2.Distance(transform.position, rightLimit.position);
 
-        if (distanceToLeft > distanceToRight)
-        {
-            target = leftLimit;
+            if (distanceToLeft > distanceToRight)
+            {
+                target = leftLimit;
+            }
+            else
+            {
+                target = rightLimit;
+            }
         }
-        else
-        {
-            target = rightLimit;
-        }
+
 
         Flip();
     }
 
     public void Flip()
     {
-        Vector3 rotation = transform.eulerAngles;
-        if (transform.position.x > target.position.x)
+        if (target != null)
         {
-            rotation.y = 180f;
-        }
-        else
-        {
-            rotation.y = 0f;
+            if (transform.position.x > target.position.x)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
         }
 
-        transform.eulerAngles = rotation;
+
+
+
     }
-}
 
+
+}
