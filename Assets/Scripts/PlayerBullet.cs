@@ -40,7 +40,21 @@ public class PlayerBullet : MonoBehaviour
             bulletSpeed = 0;
             Destroy(gameObject, 0.7f);
             //AudioController.instance.PlayEffectSFX(1);
+        }else if(bulletHit.tag == "Boss")
+        {
+            bulletHit.GetComponent<BossHealth>().TakeDamage(bulletDamage);
+            //bullet Effect
+            anim.SetBool("Hit", true);
+            bulletSpeed = 0;
+            Destroy(gameObject, 0.7f);
         }
+        //else
+        //{
+        //    anim.SetBool("Hit", true);
+        //    bulletSpeed = 0;
+        //    Destroy(gameObject, 0.7f);
+        //    //AudioController.instance.PlayEffectSFX(1);
+        //}
     }
 
     private void OnBecameInvisible()

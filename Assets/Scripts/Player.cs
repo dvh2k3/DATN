@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
+    public LayerMask BossLayer;
     public int attackDamage = 20;
     public float attackRate = 2f;
     public float nextAttackTime = 0f;
@@ -225,12 +226,17 @@ public class Player : MonoBehaviour
 
         //detect enemies in range of attack
         Collider2D[] hitEnemies =  Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
-
+        Collider2D[] hitBosses = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, BossLayer);
 
         //damage them
-        foreach(Collider2D enemy in hitEnemies)
+        foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+        }
+
+        foreach (Collider2D boss in hitBosses)
+        {
+            boss.GetComponent<BossHealth>().TakeDamage(attackDamage);
         }
     }
 
