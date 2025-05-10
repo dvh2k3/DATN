@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
         UpdateHealth();
         UpdateMagic();
         UpdateLevel();
-        if (!isDead)
+        if (!isDead && !DialogManager.Instance.dialogPanel.activeInHierarchy)
         {
 
 
@@ -175,8 +175,12 @@ public class Player : MonoBehaviour
                 currentmagic -= bulletMagicCost;
             }
         }
+        else
+        {
+            playerRigidbody.velocity = Vector2.zero;
+        }
 
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Levelup(100);
         }

@@ -61,7 +61,8 @@ public class BossHealth : MonoBehaviour
     void Die()
     {
         enemyanim.SetBool("IsDead", true);
-        Destroy(gameObject, 2f);
+        StartCoroutine(BossDieBehavior());
+        Destroy(gameObject, 5f);
         BossHPUI.SetActive(false);
     }
     public void UpdateHealth()
@@ -76,5 +77,29 @@ public class BossHealth : MonoBehaviour
         {
             bossIconUI.sprite = bossImage;
         }
+    }
+
+    [Header("Die Effect")]
+    public GameObject dieExplosionFX;
+    public Vector2 dieExplosionSize = new Vector2(2, 3);
+
+    IEnumerator BossDieBehavior()
+    {
+        yield return new WaitForSeconds(1f);
+
+        for(int i=0; i<4; i++)
+        {
+            Instantiate(dieExplosionFX, transform.position + new Vector3(Random.Range(-dieExplosionSize.x, dieExplosionSize.x), Random.Range(0, dieExplosionSize.y), 0), Quaternion.identity);
+            AudioController.instance.PlayPlayerSFX(0);
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        for(int i=0; i<5; i++)
+        {
+            Instantiate(dieExplosionFX, transform.position + new Vector3(Random.Range(-dieExplosionSize.x, dieExplosionSize.x), Random.Range(0, dieExplosionSize.y), 0), Quaternion.identity);
+            AudioController.instance.PlayPlayerSFX(0);
+            yield return new WaitForSeconds(0.5f);
+        }
+        gameObject.SetActive(false);
     }
 }
