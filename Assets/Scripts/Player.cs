@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 {
     public static Player instance;
 
+    public bool rageMode;
+
     [Header("Health")]
     public float maxHealth = 100;
     public float currentHealth;
@@ -27,6 +29,16 @@ public class Player : MonoBehaviour
     [Header("Magic UI")]
     public Slider magicSlider;
     public TMP_Text magicText;
+
+    [Header("Rage")]
+    public float maxRage;
+    public float currentRage;
+    public float rageRegenSpeed;
+    public float derageAmount;
+
+    [Header("Rage UI")]
+    public Slider rageSlider;
+    public TMP_Text rageText;
 
     [Header("EXP UI")]
     public Slider currentXpSlider;
@@ -90,6 +102,7 @@ public class Player : MonoBehaviour
         UpdateMagic();
         currentHealth = maxHealth;
         currentmagic = maxmagic;
+        currentRage = maxRage;
         //Get component
         playerRigidbody = GetComponent<Rigidbody2D>();
 
@@ -109,9 +122,16 @@ public class Player : MonoBehaviour
             return;
         healthRegen();
         RegenMagic();
+        RegenRage();
         UpdateHealth();
         UpdateMagic();
         UpdateLevel();
+        UpdateRage();
+
+        if (rageMode)
+        {
+            Derage();
+        }
         if (!isDead && !DialogManager.Instance.dialogPanel.activeInHierarchy)
         {
 
@@ -168,11 +188,16 @@ public class Player : MonoBehaviour
 
 
             //shooting
-            if (Input.GetKeyDown(KeyCode.W) && currentmagic >= bulletMagicCost)
+            if (Time.time >= nextAttackTime)
             {
-                Instantiate(bullet, shootingPoint.position, shootingPoint.rotation).moveDirection = new Vector2(transform.localScale.x, 0);
-                AudioController.instance.PlayPlayerSFX(0);
-                currentmagic -= bulletMagicCost;
+                if (Input.GetKeyDown(KeyCode.W) && currentmagic >= bulletMagicCost && rageMode)
+                {
+                    playerAnimator.SetTrigger("Spell");
+                    Instantiate(bullet, shootingPoint.position, shootingPoint.rotation).moveDirection = new Vector2(transform.localScale.x, 0);
+                    AudioController.instance.PlayPlayerSFX(0);
+                    currentmagic -= bulletMagicCost;
+                    nextAttackTime = Time.time + 1f / attackRate;
+                }
             }
         }
         else
@@ -253,8 +278,13 @@ public class Player : MonoBehaviour
         {
             Die();
         }
-
         UpdateHealth();
+    }
+    public void UpdateRage()
+    {
+        rageSlider.maxValue = maxRage;
+        rageSlider.value = currentRage;
+        rageText.text = Mathf.RoundToInt(currentRage) + "/" + maxRage;
     }
     public void UpdateHealth()
     {
@@ -268,6 +298,28 @@ public class Player : MonoBehaviour
         magicSlider.maxValue = maxmagic;
         magicSlider.value = currentmagic;
         magicText.text = Mathf.RoundToInt (currentmagic) + "/" + maxmagic;
+    }
+    public void Derage()
+    {
+        currentRage -= derageAmount * Time.deltaTime;
+       
+        if (currentRage <= 0)
+        {
+            rageMode = false;
+            playerAnimator.SetBool("Rage", false);
+        }
+        UpdateRage();
+    }
+    public void RegenRage()
+    {
+        if (!rageMode)
+        {
+            currentRage += rageRegenSpeed * Time.deltaTime;
+            if (currentRage > maxRage)
+            {
+                currentRage = maxRage;
+            }
+        }
     }
 
     public void UpdateLevel()
@@ -325,6 +377,18 @@ public class Player : MonoBehaviour
             currentHealth = maxHealth;
         }
         UpdateHealth() ;
+    }
+    public void RageMode()
+    {
+        rageMode = true;
+        playerAnimator.SetBool("Rage", true);
+        
+    }
+    public void UnrageMode()
+    {
+        rageMode = false;
+        playerAnimator.SetBool("Rage", false);
+
     }
     private void OnDrawGizmosSelected()
     {
