@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ResetLevels();
     }
 
     public void StartGame()
@@ -25,5 +25,13 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Quit");
         Application.Quit();
+    }
+    public void ResetLevels()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            PlayerPrefs.DeleteAll();
+            Debug.Log("Level Reseted");
+        }
     }
 }

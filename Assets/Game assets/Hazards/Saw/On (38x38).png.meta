@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 19117e2867efbd14cbd7a7b37ce07982
+guid: 7662f27f2864c974a867aa3a46e33e67
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,118 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack_KG_2_0
+      name: On (38x38)_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 0
-        width: 47
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71c2eefe3e6ca414b8de2c34e415a781
-      internalID: -1039701495
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_1
-      rect:
-        serializedVersion: 2
-        x: 109
-        y: 0
-        width: 58
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0cc07faf398019a4bb9d499e6dac9d69
-      internalID: -436484022
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_2
-      rect:
-        serializedVersion: 2
-        x: 213
-        y: 0
-        width: 87
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8a7e28021d2f7494399b80a9995480a1
-      internalID: 1344696071
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_3
-      rect:
-        serializedVersion: 2
-        x: 323
-        y: 0
-        width: 77
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a04c284e0bdaa61488e03ba13c378cc1
-      internalID: 225886169
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_4
-      rect:
-        serializedVersion: 2
-        x: 435
-        y: 0
-        width: 65
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 113941620a615dc49bb2ff200332774a
-      internalID: -2055987120
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_5
-      rect:
-        serializedVersion: 2
-        x: 532
+        x: 0
         y: 0
         width: 38
-        height: 61
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +111,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d444e20e4c62eb349acd25fd94395de1
-      internalID: 1011901225
+      spriteID: 0ffc9ac26e205044aa6cd9f0a38d15d6
+      internalID: -20496930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: On (38x38)_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 0
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e5f108e2ad25354e9e8db7f4176ade0
+      internalID: 1750347790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: On (38x38)_2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 0
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9222313877005bd45886796640eca072
+      internalID: -92720009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: On (38x38)_3
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 0
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4b33e1769f089b428ac85d4b6c5607c
+      internalID: -974881237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: On (38x38)_4
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e44a90e33b9d824aa5f77fb550d65e4
+      internalID: -275743290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: On (38x38)_5
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 0
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ec77db61fee0f9439717f3a64308fcf
+      internalID: -2011131472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: On (38x38)_6
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 0
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42bcdeed63d77bb4681af832392e4e50
+      internalID: -902172577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: On (38x38)_7
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 0
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc0054b786855224885231f30320ef2e
+      internalID: -217702261
       vertices: []
       indices: 
       edges: []
@@ -233,12 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Attack_KG_2_0: -1039701495
-      Attack_KG_2_1: -436484022
-      Attack_KG_2_2: 1344696071
-      Attack_KG_2_3: 225886169
-      Attack_KG_2_4: -2055987120
-      Attack_KG_2_5: 1011901225
+      On (38x38)_0: -20496930
+      On (38x38)_1: 1750347790
+      On (38x38)_2: -92720009
+      On (38x38)_3: -974881237
+      On (38x38)_4: -275743290
+      On (38x38)_5: -2011131472
+      On (38x38)_6: -902172577
+      On (38x38)_7: -217702261
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

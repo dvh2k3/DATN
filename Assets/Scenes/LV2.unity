@@ -23265,6 +23265,7 @@ MonoBehaviour:
   winScreen: {fileID: 1555046933}
   winDely: 0.5
   timeToExit: 5
+  nextSceneLoad: 4
 --- !u!61 &1895740706
 BoxCollider2D:
   m_ObjectHideFlags: 0

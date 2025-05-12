@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 78e579069c703ae4493d9528a5e85367
+guid: 318605e7e0b3b9e4e9a85fe621d49946
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,91 +95,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Idle_KG_2_0
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 0
-        width: 49
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c7a68e925a960c4d9eca671fcf6bf6d
-      internalID: 309150744
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_KG_2_1
-      rect:
-        serializedVersion: 2
-        x: 121
-        y: 0
-        width: 49
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6930d2fda5091145bea95d6e9b82eb8
-      internalID: 289384563
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_KG_2_2
-      rect:
-        serializedVersion: 2
-        x: 221
-        y: 0
-        width: 49
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b8926397e7c70844db7a2e4a5fd56fec
-      internalID: -961665035
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_KG_2_3
-      rect:
-        serializedVersion: 2
-        x: 321
-        y: 0
-        width: 50
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c984c463d3de13b488da5c07a492bd24
-      internalID: -1262157477
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -190,11 +106,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Idle_KG_2_0: 309150744
-      Idle_KG_2_1: 289384563
-      Idle_KG_2_2: -961665035
-      Idle_KG_2_3: -1262157477
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

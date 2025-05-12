@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d0c4a508ccad544b6e5177bc1f476b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScene: SampleScene
+  startScene: Level Selection
 --- !u!1 &326934640
 GameObject:
   m_ObjectHideFlags: 0
