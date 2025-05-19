@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -69,5 +69,27 @@ public class AudioController : MonoBehaviour
     {
         effectsfx[sfxEffect].Stop();
         effectsfx[sfxEffect].Play();
+    }
+    public void ChangeAudioVolume(float _change)
+    {
+        //lấy giá trị âm thanh cơ bản
+        //float baseVolume = 1;
+
+        //lấy giá trị ban đầu của âm thanh và thay đổi nó
+        float currentAudioVolume = PlayerPrefs.GetFloat("soundVolume", 1f);// tải âm thanh đã lưu cuối cùng từ tùy chọn của Player prefs
+        currentAudioVolume += _change;
+
+        //kiểm tra xem âm thanh đang đạt giá trị lớn nhất hay nhỏ nhất
+        if (currentAudioVolume > 1)
+            currentAudioVolume = 0;
+        else if (currentAudioVolume < 0)
+            currentAudioVolume = 1;
+
+        //gán giá trị cuối cùng
+        //float finalVolume = currentAudioVolume * baseVolume;
+        levelMusic.volume = currentAudioVolume;
+
+        //Lưu giá gị cuối cùng vòa PlayerPrefts
+        PlayerPrefs.SetFloat("soundVolume", currentAudioVolume);
     }
 }

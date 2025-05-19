@@ -23,6 +23,9 @@ public class BossHealth : MonoBehaviour
     public Sprite bossImage;
     public Sprite bossEnrageImage;
     public Image bossIconUI;
+
+    public GameObject deadFX;
+    public GameObject ExitLevel;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +57,7 @@ public class BossHealth : MonoBehaviour
         {
             
             Die();
-            
+            ExitLevel.SetActive(true);
         }
     }
 

@@ -15,6 +15,14 @@ public class Enemy : MonoBehaviour
     public GameObject item2Drop;
     public float item2DropChance;
 
+    [Header("Audio")]
+    private AudioSource audioSource;
+    public AudioClip HurtSound;
+    [Range(0f, 1f)]
+    public float audioVolum = 1f;
+    [Range(0f, 1f)]
+    public float audioPitch = 0f;
+
     private EnemyController parentEnemy;
 
     [Header("Health UI")]
@@ -25,7 +33,7 @@ public class Enemy : MonoBehaviour
     {
         currentHealth = maxHeath;
         UpdateHealth();
-
+        audioSource = GetComponent<AudioSource>();
         parentEnemy = GetComponent<EnemyController>();
     }
 
@@ -33,6 +41,8 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         UpdateHealth();
+        audioSource.volume = audioVolum;
+        audioSource.pitch = audioPitch;
     }
     public void TakeDamage(int damage)
     {
@@ -40,11 +50,12 @@ public class Enemy : MonoBehaviour
 
         //play hurt animation
         enemyanim.SetTrigger("Hurt");
+        audioSource.PlayOneShot(HurtSound);
         if(currentHealth <= 0)
         {
             parentEnemy.isDead = true;
             Die();
-            AudioController.instance.PlayEnemyDeathSFX(3);
+          //  AudioController.instance.PlayEnemyDeathSFX(3);
         }
     }
     void Die()

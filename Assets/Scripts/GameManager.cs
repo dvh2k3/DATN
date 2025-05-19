@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        //gameOverScreen.SetActive(false);
     }
     // Start is called before the first frame update
     void Start()
@@ -50,7 +51,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(gameOverDely);
         gameOverScreen.SetActive(true);
         AudioController.instance.PlayPlayerSFX(2);
-        yield return new WaitForSeconds(timeToRespawn);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //sau một khoảng thời gian sau khi player die thì player đc hồi sinh
+        //yield return new WaitForSeconds(timeToRespawn);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
